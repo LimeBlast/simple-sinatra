@@ -10,4 +10,12 @@ class App < Sinatra::Base
     'Hello World via post'
   end
 
+  put '/' do
+    'Hello world via put'
+  end
+
+  delete '/' do
+    'Goodbye world'
+  end
+
 end
