@@ -1,6 +1,21 @@
 require 'sinatra/base'
 
+IMAGES = [
+    {title: 'Utopia', url: 'http://placehold.it/350x150/&text=Utopia'},
+    {title: 'Alaska', url: 'http://placehold.it/350x150/&text=Alaska'},
+    {title: 'The Unknown', url: 'http://placehold.it/350x150/&text=The+Unknown'},
+]
+
 class App < Sinatra::Base
+
+  get '/images' do
+    @images = IMAGES
+    erb :images
+  end
+
+  get '/images/:index' do |index|
+    @image = IMAGES[index]
+  end
 
   get '/' do
     'Hello World'
