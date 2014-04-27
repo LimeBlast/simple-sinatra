@@ -12,7 +12,7 @@ class App < Sinatra::Base
     index = index.to_i
     @image = IMAGES[index]
 
-    haml :'images/show'
+    haml :'images/show', layout: true
   end
 
   get '/images' do
