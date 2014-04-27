@@ -18,8 +18,8 @@ class App < Sinatra::Base
     'Goodbye world'
   end
 
-  get '/hello/:name' do |name|
-    "Hello #{name}"
+  get '/hello/:first_name/:last_name' do |first, last|
+    "Hello #{first} #{last}"
   end
 
 end
