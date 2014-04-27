@@ -8,13 +8,16 @@ IMAGES = [
 
 class App < Sinatra::Base
 
+  get '/images/:index' do |index|
+    index = index.to_i
+    @image = IMAGES[index]
+
+    haml :'images/show'
+  end
+
   get '/images' do
     @images = IMAGES
     erb :images
-  end
-
-  get '/images/:index' do |index|
-    @image = IMAGES[index]
   end
 
   get '/' do
