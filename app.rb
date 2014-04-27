@@ -6,4 +6,8 @@ class App < Sinatra::Base
     'Hello World'
   end
 
+  post '/' do
+    'Hello World via post'
+  end
+
 end
