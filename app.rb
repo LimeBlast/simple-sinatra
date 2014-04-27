@@ -18,7 +18,7 @@ class App < Sinatra::Base
     'Goodbye world'
   end
 
-  get '/hello/:first_name/:last_name' do |first, last|
+  get '/hello/:first_name/?:last_name?' do |first, last|
     "Hello #{first} #{last}"
   end
 
