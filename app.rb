@@ -8,7 +8,7 @@ IMAGES = [
 
 class App < Sinatra::Base
 
-  enable :sessions
+  enable :sessions, :logging
 
   # Before filter based on regular expression
   before /images/ do
@@ -19,12 +19,12 @@ class App < Sinatra::Base
   before do
     @user = 'Daniel Hollands'
     @height = session[:height]
-    puts '==> Entering request'
+    logger.info '==> Entering request'
   end
 
   # generic after filter
   after do
-    puts '<== Leaving request'
+    logger.info '<== Leaving request'
   end
 
   get '/sessions/new' do
