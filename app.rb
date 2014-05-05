@@ -8,6 +8,22 @@ IMAGES = [
 
 class App < Sinatra::Base
 
+  # Before filter based on regular expression
+  before /images/ do
+    @message = "You're viewing an image"
+  end
+
+  # generic before filter
+  before do
+    @user = 'Daniel Hollands'
+    puts '==> Entering request'
+  end
+
+  # generic after filter
+  after do
+    puts '<== Leaving request'
+  end
+
   get '/images' do
     @images = IMAGES
     erb :images
@@ -21,7 +37,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    erb :hello, layout: true
   end
 
   post '/' do
