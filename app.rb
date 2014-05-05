@@ -8,7 +8,7 @@ IMAGES = [
 
 class App < Sinatra::Base
 
-  enable :sessions, :logging
+  enable :sessions
 
   # Before filter based on regular expression
   before /images/ do
@@ -19,11 +19,13 @@ class App < Sinatra::Base
   before do
     @user = 'Daniel Hollands'
     @height = session[:height]
+    logger = Log4r::Logger['app']
     logger.info '==> Entering request'
   end
 
   # generic after filter
   after do
+    logger = Log4r::Logger['app']
     logger.info '<== Leaving request'
   end
 
