@@ -13,6 +13,8 @@ GEM
     equalizer (0.0.9)
     eventmachine (1.0.3)
     ffi (1.9.3)
+    haml (4.0.5)
+      tilt
     hitimes (1.2.1)
     html (0.1.2)
       adamantium (~> 0.2.0)
@@ -52,6 +54,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  haml
   html
   log4r
   rerun
